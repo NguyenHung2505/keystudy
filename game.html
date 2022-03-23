@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id = "myCanvas" whidth="300" height="600" style="border: 1px solid deeppink"></canvas>
+<script>
+    let myCanvas = document.getElementById("myCanvas");
+    let context = myCanvas.getContext("2d");
+
+    nhanvat={
+        x:200, y:500
+    }
+    setInterval(start,100);
+
+    function start(){
+        context.clearRect(0,0,300,600);
+        context.fillStyle="black";
+        context.fillRect(nhanvat.x,nhanvat.y,25,25);
+        vacham();
+    }
+    function vacham(){
+        if(nhanvat.x <=0||nhanvat.x + 25 >= 320){
+            alert("thua ui")
+        }
+        if (nhanvat.y <=0||nhanvat.y + 25 >= 600){
+            alert (" thua nha")
+        }
+    }
+
+    document.addEventListener("keydown",key => {
+        switch(key.keyCode){
+            case 37:
+                if(nhanvat.x > 0)
+                nhanvat.x -= 5;
+                break;
+            case 38:
+                nhanvat.y -= 5;
+                break;
+            case 39:
+                if(nhanvat.x + 25 < 300)
+                nhanvat.x += 5;
+                break;
+            case 40:
+                if(nhanvat.y + 25 < 600)
+                nhanvat.y += 5;
+                break;
+
+
+        }
+    })
+</script>
+</body>
+</html>
